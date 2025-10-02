@@ -1,0 +1,3 @@
+This 'public' directory is for static assets.
+
+Please place the `piz_compressed.exr` file here for the 3D visualizer to work correctly.

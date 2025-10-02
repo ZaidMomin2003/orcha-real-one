@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Google Sans', sans-serif;
+}
+
+:root {
+  --gdm-icon-color: white;
+  --gdm-button-background-color: #3c4043;
+  --gdm-button-background-color-hover: #52565a;
+  --gdm-end-call-button-background-color: #ea4335;
+  --gdm-end-call-button-background-color-hover: #f28b82;
+}
+
+.meet-layout {
+  width: 100vw;
+  height: 100vh;
+  background-color: #202124;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-view {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-video {
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+  width: 240px;
+  height: 180px;
+  border: 2px solid #5f6368;
+  border-radius: 8px;
+  object-fit: cover;
+  transform: scaleX(-1); /* Mirror effect */
+  background-color: #000;
+  display: none; /* Hidden by default */
+}
+
+#user-video.active {
+  display: block;
+}
+
+.captions-overlay {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  text-align: center;
+  font-size: 1.2rem;
+  visibility: hidden;
+}
+
+.captions-overlay.active {
+  visibility: visible;
+}
+
+.control-bar {
+  height: 80px;
+  background-color: #202124;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.control-bar button {
+  background-color: var(--gdm-button-background-color);
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.control-bar button:hover {
+  background-color: var(--gdm-button-background-color-hover);
+}
+
+.control-bar button.end-call {
+  background-color: var(--gdm-end-call-button-background-color);
+}
+.control-bar button.end-call:hover {
+  background-color: var(--gdm-end-call-button-background-color-hover);
+}
+
+.control-bar button svg {
+  fill: var(--gdm-icon-color);
+}
+
+.control-bar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+select {
+  outline: none;
+  border: 1px solid var(--gdm-button-background-color);
+  color: white;
+  border-radius: 25px;
+  background: var(--gdm-button-background-color);
+  padding: 10px 15px;
+  width: 150px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+select:hover {
+  background: var(--gdm-button-background-color-hover);
+}
+
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+select option {
+  background: #100c14;
+  color: white;
+}
+
+#status {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #bdc1c6;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 16px;
+  z-index: 10;
+}

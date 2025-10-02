@@ -1,20 +1,47 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Next.js AI Interview Practice App
 
-# Run and deploy your AI Studio app
+This is a web application for practicing job interviews with an AI, built with Next.js, React, Three.js, and the Google Gemini API. It features a Google Meet-like UI, real-time voice chat, live transcription, and a 3D audio visualizer.
 
-This contains everything you need to run your app locally.
+## Setup Instructions
 
-View your app in AI Studio: https://ai.studio/apps/drive/1Fo7vfm4h4XRt6NmR3kuQOi31beXLhdiK
+### 1. Clean Up Old Files
 
-## Run Locally
+This project is a complete migration from a previous Lit-based structure. Before you begin, please **delete all the old files** from the original project (e.g., `index.html`, `index.tsx`, `visual-3d.ts`, etc.) to avoid conflicts.
 
-**Prerequisites:**  Node.js
+### 2. Install Dependencies
 
+Install the required packages using npm:
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm install
+```
+
+### 3. Set Up Environment Variables
+
+You need to provide your Google Gemini API key.
+
+1.  Create a new file named `.env.local` in the root of the project.
+2.  Add your API key to this file:
+
+```
+NEXT_PUBLIC_API_KEY="YOUR_GEMINI_API_KEY_HERE"
+```
+
+**Note:** The Gemini Live API SDK runs on the client, which requires the API key to be available in the browser. In Next.js, this is handled by prefixing the environment variable with `NEXT_PUBLIC_`.
+
+### 4. Place Static Assets
+
+The 3D visualizer requires an EXR texture file.
+
+1.  Obtain the `piz_compressed.exr` file.
+2.  Place it inside the `/public` directory at the root of the project.
+
+### 5. Run the Development Server
+
+Start the Next.js development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

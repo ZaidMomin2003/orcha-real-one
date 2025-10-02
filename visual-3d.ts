@@ -242,8 +242,8 @@ export class GdmLiveAudioVisuals3D extends LitElement {
   }
 
   protected firstUpdated() {
-    // FIX: Property 'shadowRoot' does not exist on type 'GdmLiveAudioVisuals3D'. Use `this.renderRoot` which is the standard Lit API.
-    this.canvas = this.renderRoot.querySelector('canvas') as HTMLCanvasElement;
+    // FIX: Replaced `this.renderRoot` with `this.shadowRoot!` to fix `Property 'renderRoot' does not exist on type 'GdmLiveAudioVisuals3D'`.
+    this.canvas = this.shadowRoot!.querySelector('canvas') as HTMLCanvasElement;
     this.init();
   }
 
